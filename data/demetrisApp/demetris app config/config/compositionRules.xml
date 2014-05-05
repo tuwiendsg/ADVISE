@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CompositionRulesConfiguration>
+    <MetricsCompositionRules>
+		<CompositionRule TargetMonitoredElementLevel="SERVICE_UNIT">
+            <TargetMonitoredElementID>HAProxy</TargetMonitoredElementID>
+            <ResultingMetric type="RESOURCE" measurementUnit="%" name="memUsage"/>
+            <Operation MetricSourceMonitoredElementLevel="VM" type="AVG">
+                <ReferenceMetric type="RESOURCE" name="memUsedPercent"/>
+            </Operation>
+        </CompositionRule>
+		 <CompositionRule TargetMonitoredElementLevel="SERVICE_UNIT">
+            <TargetMonitoredElementID>HAProxy</TargetMonitoredElementID>
+            <ResultingMetric type="RESOURCE" measurementUnit="%" name="cpuUsage"/>
+             <Operation MetricSourceMonitoredElementLevel="VM" type="AVG">
+                <ReferenceMetric type="RESOURCE" name="cpuTotal"/>
+            </Operation>
+        </CompositionRule>
+		<CompositionRule TargetMonitoredElementLevel="SERVICE_UNIT">
+            <TargetMonitoredElementID>AppServer</TargetMonitoredElementID>
+            <ResultingMetric type="RESOURCE" measurementUnit="%" name="cpuUsage"/>
+             <Operation MetricSourceMonitoredElementLevel="VM" type="AVG">
+                <ReferenceMetric type="RESOURCE" name="cpuTotal"/>
+            </Operation>
+        </CompositionRule>
+        <CompositionRule TargetMonitoredElementLevel="SERVICE_UNIT">
+            <TargetMonitoredElementID>AppServer</TargetMonitoredElementID>
+            <ResultingMetric type="RESOURCE" measurementUnit="no" name="currentThreadsBusy"/>
+            <Operation MetricSourceMonitoredElementLevel="VM" type="AVG">
+                <ReferenceMetric type="RESOURCE" name="currentThreadsBusy"/>
+            </Operation>
+        </CompositionRule>
+		<CompositionRule TargetMonitoredElementLevel="SERVICE_UNIT">
+            <TargetMonitoredElementID>AppServer</TargetMonitoredElementID>
+            <ResultingMetric type="RESOURCE" measurementUnit="ops/s" name="requestThroughput"/>
+            <Operation MetricSourceMonitoredElementLevel="VM" type="SUM">
+                <ReferenceMetric type="RESOURCE" name="requestThroughput"/>
+            </Operation>
+        </CompositionRule>
+    	<CompositionRule TargetMonitoredElementLevel="SERVICE_UNIT">
+            <TargetMonitoredElementID>AppServer</TargetMonitoredElementID>
+            <ResultingMetric type="RESOURCE" measurementUnit="%" name="memUsed"/>
+            <Operation MetricSourceMonitoredElementLevel="VM" type="AVG">
+                <ReferenceMetric type="RESOURCE" name="memUsedPercent"/>
+            </Operation>
+        </CompositionRule>
+        <CompositionRule TargetMonitoredElementLevel="SERVICE_UNIT">
+            <TargetMonitoredElementID>CassandraNode</TargetMonitoredElementID>
+            <ResultingMetric type="RESOURCE" measurementUnit="%" name="cpuUsage"/>
+             <Operation MetricSourceMonitoredElementLevel="VM" type="AVG">
+                <ReferenceMetric type="RESOURCE" name="cpuTotal"/>
+            </Operation>
+        </CompositionRule>
+        <CompositionRule TargetMonitoredElementLevel="SERVICE_UNIT">
+            <TargetMonitoredElementID>CassandraSeed</TargetMonitoredElementID>
+            <ResultingMetric type="RESOURCE" measurementUnit="%" name="cpuUsage"/>
+           <Operation MetricSourceMonitoredElementLevel="VM" type="AVG">
+                <ReferenceMetric type="RESOURCE" name="cpuTotal"/>
+            </Operation>
+        </CompositionRule>
+      
+         <CompositionRule TargetMonitoredElementLevel="VM">
+            <ResultingMetric type="RESOURCE" measurementUnit="no" name="numberOfVMs"/>
+            <Operation value="1" type="SET_VALUE"/>
+        </CompositionRule>
+
+		<CompositionRule TargetMonitoredElementLevel="SERVICE_UNIT">
+            <ResultingMetric type="RESOURCE" measurementUnit="no" name="numberOfVMs"/>
+                <Operation MetricSourceMonitoredElementLevel="VM" type="SUM">
+                    <ReferenceMetric type="RESOURCE" name="numberOfVMs"/>
+                </Operation>
+        </CompositionRule>
+ 
+        <CompositionRule TargetMonitoredElementLevel="SERVICE_UNIT">
+            <ResultingMetric type="RESOURCE" measurementUnit="ms" name="numberOfVMs"/>
+            <Operation MetricSourceMonitoredElementLevel="VM" type="SUM">
+                <ReferenceMetric type="RESOURCE" name="numberOfVMs"/>
+            </Operation>
+        </CompositionRule>
+       <CompositionRule TargetMonitoredElementLevel="SERVICE_UNIT">
+            <ResultingMetric type="RESOURCE" measurementUnit="$" name="cost"/>
+            <Operation MetricSourceMonitoredElementLevel="SERVICE_UNIT" value="0.12" type="MUL">
+			       <ReferenceMetric type="RESOURCE" name="numberOfVMs"/>
+            </Operation>
+        </CompositionRule>
+		
+		
+         <CompositionRule TargetMonitoredElementLevel="SERVICE_TOPOLOGY">
+            <ResultingMetric type="RESOURCE" measurementUnit="%" name="cpuUsage"/>
+            <Operation MetricSourceMonitoredElementLevel="SERVICE_UNIT" type="AVG">
+                <ReferenceMetric type="RESOURCE" measurementUnit="%" name="cpuUsage"/>
+            </Operation>
+        </CompositionRule>
+		
+		<CompositionRule TargetMonitoredElementLevel="SERVICE_TOPOLOGY">
+            <ResultingMetric type="RESOURCE" measurementUnit="%" name="memUsage"/>
+            <Operation MetricSourceMonitoredElementLevel="SERVICE_UNIT" type="AVG">
+                <ReferenceMetric type="RESOURCE" measurementUnit="%" name="memUsage"/>
+            </Operation>
+        </CompositionRule>
+		
+        <CompositionRule TargetMonitoredElementLevel="SERVICE_TOPOLOGY">
+            <TargetMonitoredElementID>WebCluster</TargetMonitoredElementID>
+            <ResultingMetric type="RESOURCE" measurementUnit="operations/s" name="requestThroughput"/>
+            <Operation MetricSourceMonitoredElementLevel="SERVICE_UNIT" type="SUM">
+                <ReferenceMetric type="RESOURCE" name="requestThroughput"/>
+                <SourceMonitoredElementID>AppServer</SourceMonitoredElementID>
+            </Operation>
+        </CompositionRule>
+            <CompositionRule TargetMonitoredElementLevel="SERVICE_TOPOLOGY">
+            <TargetMonitoredElementID>WebCluster</TargetMonitoredElementID>
+            <ResultingMetric type="RESOURCE" measurementUnit="operations/s" name="busyThreads"/>
+            <Operation MetricSourceMonitoredElementLevel="SERVICE_UNIT" type="KEEP">
+                <ReferenceMetric type="RESOURCE" name="busyThreads"/>
+                <SourceMonitoredElementID>AppServer</SourceMonitoredElementID>
+            </Operation>
+        </CompositionRule>
+        <CompositionRule TargetMonitoredElementLevel="SERVICE_TOPOLOGY">
+            <ResultingMetric type="RESOURCE" measurementUnit="$" name="cost"/>
+                <Operation MetricSourceMonitoredElementLevel="SERVICE_UNIT" type="SUM">
+                    <ReferenceMetric type="RESOURCE" name="cost"/>
+                </Operation>
+        </CompositionRule>
+		
+		     <CompositionRule TargetMonitoredElementLevel="SERVICE_TOPOLOGY">
+            <ResultingMetric type="RESOURCE" measurementUnit="no" name="numberOfVMs"/>
+                <Operation MetricSourceMonitoredElementLevel="SERVICE_UNIT" type="SUM">
+                    <ReferenceMetric type="RESOURCE" name="numberOfVMs"/>
+                </Operation>
+        </CompositionRule>
+		
+       
+		<CompositionRule TargetMonitoredElementLevel="SERVICE">
+            <ResultingMetric type="RESOURCE" measurementUnit="no" name="numberOfVMs"/>
+                <Operation MetricSourceMonitoredElementLevel="SERVICE_TOPOLOGY" type="SUM">
+                    <ReferenceMetric type="RESOURCE" name="numberOfVMs"/>
+                </Operation>
+        </CompositionRule>
+		<CompositionRule TargetMonitoredElementLevel="SERVICE">
+            <ResultingMetric type="RESOURCE" measurementUnit="no" name="cost"/>
+                <Operation MetricSourceMonitoredElementLevel="SERVICE_TOPOLOGY" type="SUM">
+                    <ReferenceMetric type="RESOURCE" name="cost"/>
+                </Operation>
+        </CompositionRule>
+		  <CompositionRule TargetMonitoredElementLevel="SERVICE">
+            <ResultingMetric type="RESOURCE" measurementUnit="%" name="cpuUsage"/>
+            <Operation MetricSourceMonitoredElementLevel="SERVICE_TOPOLOGY" type="AVG">
+                <ReferenceMetric type="RESOURCE" measurementUnit="%" name="cpuUsage"/>
+            </Operation>
+        </CompositionRule>
+    </MetricsCompositionRules>
+    
+</CompositionRulesConfiguration>

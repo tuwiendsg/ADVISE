@@ -1,0 +1,38 @@
+ELASTICITY_ANALYSIS_ENABLED = true
+
+#interval at which monitoring data is collected in seconds  
+DATA_COLLECTION_INTERVAL_IN_SECONDS = 10
+
+#interval at which monitoring data is aggregated. For example, 10 means
+#two monitoring snapshots got at 5 seconds interval are aggregated into 1 with DATA_AGGREGATION_WINDOWS = 2
+#if for example we monitor at 5 seconds and want to aggregate each 10 monitoring windows, we state DATA_AGGREGATION_WINDOWS = 10
+DATA_AGGREGATION_WINDOWS = 1
+
+#used in case metrics are injected in the virtual machines to automatically detect to which Service Unit a VM belongs
+SERVICE_ELEMENT_ID_METRIC_NAME = serviceUnitID
+
+GANGLIA_PORT = 8649
+ 
+# LocalGanglia | RemoteGanglia| JCatascopia | Replay
+MONITORING_DATA_ACCESS = LocalGanglia
+
+#Machine from which all other machines can be monitored from Ganglia
+ACCESS_MACHINE_IP = 10.0.0.1
+
+#name of user on machine to which we ssh to get monitoring data from Ganglia in case RemoteGanglia is used
+ACCESS_MACHINE_USER_NAME = name
+
+#PATH to the certificate used to ssh to the ACCESS_MACHINE_IP in case RemoteGanglia is used
+#please place the certificate in the /src/main/resources/config folder to be loadable by web server at run-time
+PEM_CERT_PATH =path
+
+MELA_DATA_SERVICE_PORT = 9123
+
+MELA_DATA_SERVICE_IP=localhost
+
+#Used in CELAR
+#JCATASCOPIA_IP= 83.212.117.112
+
+#used only in the case of replaying monitoring data stored in the MELA database.
+MONITORING_SEQ_ID= id
+

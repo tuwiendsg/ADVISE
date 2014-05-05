@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CloudService id="CloudApp">
+	<ServiceTopology id="CassandraCluster">
+			<Relationship>
+			<Master>CassandraSeed</Master>
+			<Slave>CassandraNode</Slave>
+		</Relationship>
+		<ServiceUnit id="CassandraSeed" />
+		<ServiceUnit id="CassandraNode" />
+	</ServiceTopology>
+	<ServiceTopology id="WebCluster">
+		<Relationship>
+			<Master>HAProxy</Master>
+			<Slave>AppServer</Slave>
+		</Relationship>
+		<ServiceUnit id="HAProxy" />
+		<ServiceUnit id="AppServer" />
+		
+	</ServiceTopology>
+</CloudService>
+
+
+

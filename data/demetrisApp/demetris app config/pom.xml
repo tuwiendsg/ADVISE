@@ -1,0 +1,149 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>eu.celar.multilevel-metrics-evaluation</groupId>
+		<artifactId>MELA-Pom</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>MELA-DataService</artifactId>
+	<packaging>jar</packaging>
+
+	<name>MELA-DataService</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>eu.celar.multilevel-metrics-evaluation</groupId>
+			<artifactId>MELA-Common</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
+
+		<!-- Dependency only on the MELA-DataService source files from the TUW 
+			MELA standalone repository, providing maximum building flexibility -->
+		<dependency>
+			<groupId>at.ac.tuwien.mela</groupId>
+			<artifactId>MELA-DataService</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<type>jar</type>
+			<classifier>sources</classifier>
+		</dependency>
+		
+		<!-- Dependency on the MELA Common standalone source files to ease development -->
+		<dependency>
+			<groupId>at.ac.tuwien.mela</groupId>
+			<artifactId>MELA-Common</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<type>jar</type>
+			<classifier>sources</classifier>
+		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1</version>
+			<type>jar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-all</artifactId>
+			<version>5.5.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+			<version>0.1.50</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>eu.celar.multilevel-metrics-evaluation</groupId> 
+			<artifactId>MELA-Common</artifactId> <version>1.0-SNAPSHOT</version> <type>jar</type> 
+			</dependency> -->
+		<dependency>
+			<groupId>eu.celar.multilevel-metrics-evaluation</groupId>
+			<artifactId>MELA-JCatascopia-Client</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.1</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>at.ac.tuwien.dsg.celar.mela.dataservice.main.Main</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<phase>process-resources</phase>
+						<configuration>
+							<target>
+								<copy todir="${basedir}/target/dataServiceConfig">
+									<fileset dir="${basedir}/dataServiceConfig" includes="**/*" />
+								</copy>
+                                                                <copy file="${basedir}/mela-data-service" tofile="${basedir}/target/mela-data-service"/>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

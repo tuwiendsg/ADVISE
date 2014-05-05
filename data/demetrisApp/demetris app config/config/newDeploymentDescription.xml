@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DeploymentDescription CloudServiceID="CloudApp" AccessIP="localhost">
+	<DeploymentUnit serviceUnitID="HAProxy" 
+		defaultFlavor="" defaultImage="a4fe953e-d4c8-40a5-9c73-d9fee3f00c08" >
+	<AssociatedVM IP="109.231.122.181" UUID="e4fbe690-da05-3f4e-821d-c9c2f0eb713b"/>
+	</DeploymentUnit>
+	<DeploymentUnit serviceUnitID="AppServer"
+		defaultFlavor="" defaultImage="99da4738-247e-38d8-897e-f2cfa7a5c885">
+			<AssociatedVM IP="109.231.122.87" UUID="916eebcc-0983-3b0d-8e77-ad7492083a79"/>	
+	<ElasticityCapability Name="scaleIn"/>
+	<ElasticityCapability Name="scaleOut"/>
+	</DeploymentUnit>
+	<DeploymentUnit serviceUnitID="CassandraSeed"
+		defaultFlavor="" defaultImage="22ce5bdf-de2b-3154-8979-a0c426d2f7e8" >
+	<AssociatedVM IP="109.231.122.187" UUID="1d359490-4b59-32cc-8b41-99336822384f"/>
+	</DeploymentUnit>
+	<DeploymentUnit serviceUnitID="CassandraNode"
+		defaultFlavor="" defaultImage="05af63dc-d1c6-3803-a018-3b6d1282d800" >
+	<AssociatedVM IP="109.231.122.212" UUID="cf0b715c-8bee-3bd6-bbc8-ba10aa6ab121"/>
+	<ElasticityCapability Name="scaleIn"/>
+	<ElasticityCapability Name="scaleOut"/>
+	</DeploymentUnit>
+</DeploymentDescription>
