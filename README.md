@@ -1,7 +1,7 @@
 ADVISE
 ======
 
-More detailed experiments can be found at http://www.infosys.tuwien.ac.at/research/viecom/prototypes/ADVISE
+More detailed experiments can be found at http://www.infosys.tuwien.ac.at/research/viecom/prototypes/ADVISE and the <a href="https://github.com/tuwiendsg/ADVISE/wiki/Evaluating-Cloud-Service-Behavior">wiki</a>.
 
 ADVISE framework is written in python, and available in <a href="https://github.com/tuwiendsg/ADVISE/tree/master/ADVISE"> ./ADVISE </a>. Please check the <a href="https://github.com/tuwiendsg/ADVISE/blob/master/ADVISE/User%20Guide.txt">user guide</a> or the <a href="https://github.com/tuwiendsg/ADVISE/wiki/User-Guide">wiki</a> detailing the necessary steps for using ADVISE.
 
