@@ -3,8 +3,5 @@ ADVISE
 
 More detailed experiments can be found at http://www.infosys.tuwien.ac.at/research/viecom/prototypes/ADVISE
 
-For running this, you need to have MELA deployed and running.
+For running ADVISE to find expected behavior of cloud services, you need to have MELA deployed and running, or choose already gathered data for the Video Service and M2M DaaS.
 
-Configure files from ./config -> serviceDescription.xml for describing the different parts of the application and the newDeploymentDescription.xml for the current deployment (IPs, UUIDs needed of current servers, and UUID of existent servers).
-
-Also clarify composition rules, depending on the names specified in serviceDescription.xml, and on the monitored metrics.
