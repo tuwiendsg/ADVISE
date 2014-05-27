@@ -1,83 +1,228 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <title>ADVISE by DSG, TUWIEN</title>
 
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+	<meta name="description" content="ADVISE">
+	<meta name="keywords" content="Elasticity Behavior, Estimation, Time, Timeseries">
+	<meta name="author" content="Georgiana Copil">
+	<meta charset="UTF-8">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	
+		<script src="js/modernizr.custom.js"></script>
+
+	<link rel="shortcut icon" href="img/demopage/favicon.ico">
+	<link rel="stylesheet" href="stylesheets/lightbox.css" media="screen"/>
+	
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/lightbox-2.6.min.js"></script>
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43485989-5', 'tuwiendsg.github.io');
+  ga('send', 'pageview');
+
+</script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <title>Advise by tuwiendsg</title>
   </head>
-
   <body>
-    <header>
-      <div class="inner">
-        <h1>Advise</h1>
-        <h2></h2>
-        <a href="https://github.com/tuwiendsg/ADVISE" class="button"><small>View project on</small>GitHub</a>
-      </div>
-    </header>
+    <div class="wrapper">
+      <header class="without-description"  >
+	    <p>
+       <img src="logo_old.png">
+        <p class="view"><a href="https://github.com/tuwiendsg/ADVISE">View the Project on GitHub <small>tuwiendsg/ADVISE</small></a></p>
+        <ul>
+          <li><a href="https://github.com/tuwiendsg/ADVISE/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/tuwiendsg/ADVISE/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/tuwiendsg/ADVISE">View On <strong>GitHub</strong></a></li>
+        </ul>
+		 </p>
+      </header>
+      <section>
+        <h2>
+<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>ADVISE: evAluating clouD serVIce elaSticity bEhavior</h2>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<p>
+				This page provides supplementary material for the paper:
+				<ul>
+				<li>
+                  <b>ADVISE: Evaluating cloud service elasticity behavior</b>, to be submitted (<a href="https://github.com/tuwiendsg/ADVISE/blob/gh-pages/DeterminingElasticityBehavior.pdf?raw=true">PDF</a>) to the 12th International Conference on Service Oriented Computing - <a href="http://www.icsoc.org/">ICSOC 2014</a>, November 3-6, 2014, to be held in Paris, France. 
+				</li>
+				</ul></p>
+				<p>Complex cloud services rely on different elasticity control processes for dealing with resource, cost and quality elasticity. Due to the complexity of service structures, deployment strategies, and underlying infrastructure dynamics, such processes which consist of several actions are typically designed and applied to similar types of services. However, the  enforcement of  an elasticity control process on a cloud service may not produce an optimal gain in terms of quality or cost.
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+Therefore, being able to estimate and evaluate the relation between cloud service behavior and elasticity control processes is crucial for deciding which elasticity control processes are the most appropriate. We present an approach for determining cloud service behavior based on various types of information, like control processes which are enforced and ongoing workload. An experimental evaluation with two cloud services illustrates the usefulness of  our framework.
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/tuwiendsg/ADVISE/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/tuwiendsg/ADVISE/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/tuwiendsg/ADVISE"></a> is maintained by <a href="https://github.com/tuwiendsg">tuwiendsg</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+</p>
+				
+				<a id="experiments"></a>
+				<h2>Experiments</h2>
+				<p>Note: For seeing the different effects (estimated and observed) over the different parts of the application, just click on the first image from the list.</p>
+				
+				<h2>M2M DaaS</h2>
+				<p>The Machine-to-Machine (M2M) DaaS shown in figure below processes information originating from several different types of data sensors (i.e., temperature, atmospheric pressure, or pollution). Specifically, the M2M DaaS is comprised of two service topologies, an Event Processing Service Topology and a Data End Service Topology. Each service topology consists of two service units, one with a processing goal, and the other acting as the service topology balancer/controller. To stress this cloud service we generate random sensor event information which is processed by the Event Processing Service Topology, and stored/retrieved from the Data End Service Topology.</p>
+				<center> <img src="images/daasService/m2mApplication.png"  width="600" height="100"> </center>
+				
+				<br/>
+				<br/>
+				<ul><li>Scale In Data Node Service Unit: Effect on Cloud Service<br/>
+					<a href="images/daasService/scaleInDataNode_efectOnCloudServiceLevel/costPerClientPerHour.png?lightbox[modal]=true" title="Effect of Scale In Data Node Service Unit on entire Cloud Service - Cost per Client per Hour" data-lightbox="scaleInDataNode_efectOnCloudServiceLevel">
+				<img src="images/daasService/scaleInDataNode_efectOnCloudServiceLevel/costPerClientPerHour.png"  width="200" height="100"></a>
+				<a href="images/daasService/scaleInDataNode_efectOnCloudServiceLevel/cpuUsage.png?lightbox[modal]=true" data-lightbox="scaleInDataNode_efectOnCloudServiceLevel" title="Effect of Scale In Data Node Service Unit on entire Cloud Service - CPU Usage">
+				<img src="images/daasService/scaleInDataNode_efectOnCloudServiceLevel/cpuUsage.png"  width="200" height="100"></a>
+				<a href="images/daasService/scaleInDataNode_efectOnCloudServiceLevel/vmNb.png?lightbox[modal]=true" data-lightbox="scaleInDataNode_efectOnCloudServiceLevel" title="Effect of Scale In Data Node Service Unit on entire Cloud Service - Virtual Machine Number">
+				<img src="images/daasService/scaleInDataNode_efectOnCloudServiceLevel/vmNb.png"  width="200" height="100"></a>
+				</li>
+				<li>Scale In Data Node: Effect on Data End Topology<br/>
+				<a href="images/daasService/scaleInDataNode_efectOnDataEndTopology/nbMachines.png?lightbox[modal]=true" data-lightbox="scaleInDataNode_efectOnDataEndTopology" title="Scale In Data Node: Effect on Data End Topology - Virtual Machine Number">
+				<img src="images/daasService/scaleInDataNode_efectOnDataEndTopology/nbMachines.png"  width="200" height="100"></a>
+				<a href="images/daasService/scaleInDataNode_efectOnDataEndTopology/cpuUsage.png?lightbox[modal]=true" data-lightbox="scaleInDataNode_efectOnDataEndTopology" title="Scale In Data Node: Effect on Data End Topology - CPU Usage">
+				<img src="images/daasService/scaleInDataNode_efectOnDataEndTopology/cpuUsage.png"  width="200" height="100"></a>
+				<a href="images/daasService/scaleInDataNode_efectOnDataEndTopology/latency.png?lightbox[modal]=true" data-lightbox="scaleInDataNode_efectOnDataEndTopology" title="Scale In Data Node: Effect on Data End Topology - Latency">
+				<img src="images/daasService/scaleInDataNode_efectOnDataEndTopology/latency.png"  width="200" height="100"></a>
+				</li>
+				<li>Scale In Data Node: Effect on Data Node<br/>
+				<a href="images/daasService/scaleInDataNode_efectOnDataNode/nbVMs.png?lightbox[modal]=true" data-lightbox="scaleInDataNode_efectOnDataNode" title="Scale In Data Node: Effect on Data Node - Virtual Machine Number">
+				<img src="images/daasService/scaleInDataNode_efectOnDataNode/nbVMs.png"  width="200" height="100"></a>
+				<a href="images/daasService/scaleInDataNode_efectOnDataNode/cpuUsage.png?lightbox[modal]=true" data-lightbox="scaleInDataNode_efectOnDataNode" title="Scale In Data Node: Effect on Data Node - CPU Usage">
+				<img src="images/daasService/scaleInDataNode_efectOnDataNode/cpuUsage.png"  width="200" height="100"></a>
+				<a href="images/daasService/scaleInDataNode_efectOnDataNode/latency.png?lightbox[modal]=true" data-lightbox="scaleInDataNode_efectOnDataNode" title="Scale In Data Node: Effect on Data Node - Latency">
+				<img src="images/daasService/scaleInDataNode_efectOnDataNode/latency.png"  width="200" height="100"></a>
+				</li>
+				<li>Scale In Event Processing: Effect on Event Processing Topology <br/>
+				<a href="images/daasService/scaleInEventProcessing_efectOnServiceTopology/cost.png?lightbox[modal]=true" data-lightbox="scaleInEventProcessing_efectOnServiceTopology" title="Scale In Event Processing: Effect on Event Processing Topology - Cost">
+				<img src="images/daasService/scaleInEventProcessing_efectOnServiceTopology/cost.png"  width="200" height="100"></a>
+				<a href="images/daasService/scaleInEventProcessing_efectOnServiceTopology/activeConnections.png?lightbox[modal]=true" data-lightbox="scaleInEventProcessing_efectOnServiceTopology" title="Scale In Event Processing: Effect on Event Processing Topology - Active Connections">
+				<img src="images/daasService/scaleInEventProcessing_efectOnServiceTopology/activeConnections.png"  width="200" height="100"></a>
+				<a href="images/daasService/scaleInEventProcessing_efectOnServiceTopology/responseTime.png?lightbox[modal]=true" data-lightbox="scaleInEventProcessing_efectOnServiceTopology" title="Scale In Event Processing: Effect on Event Processing Topology - Response Time">
+				<img src="images/daasService/scaleInEventProcessing_efectOnServiceTopology/responseTime.png"  width="200" height="100"></a>				
+				</li>
+				
+				<li>Scale Out Data Node: Effect on Data Controller <br/>
+				<a href="images/daasService/scaleOutDataNode_efectOnDataController/cost.png?lightbox[modal]=true" data-lightbox="scaleOutDataNode_efectOnDataController" title="Scale Out Data Node: Effect on Data Controller - Cost">
+				<img src="images/daasService/scaleOutDataNode_efectOnDataController/cost.png"  width="200" height="100"></a>
+				<a href="images/daasService/scaleOutDataNode_efectOnDataController/cpuUsage.png?lightbox[modal]=true" data-lightbox="scaleOutDataNode_efectOnDataController" title="Scale Out Data Node: Effect on Data Controller - CPU Usage">
+				<img src="images/daasService/scaleOutDataNode_efectOnDataController/cpuUsage.png"  width="200" height="100"></a>
+				<a href="images/daasService/scaleOutDataNode_efectOnDataController/latency.png?lightbox[modal]=true" data-lightbox="scaleOutDataNode_efectOnDataController" title="Scale Out Data Node: Effect on Data Controller - Latency">
+				<img src="images/daasService/scaleOutDataNode_efectOnDataController/latency.png"  width="200" height="100"></a>				
+				</li>
+				<li>Scale Out Data Node: Effect on Data Node <br/>
+				<a href="images/daasService/scaleOutDataNode_efectOnDataNode/cost.png?lightbox[modal]=true" data-lightbox="scaleOutDataNode_efectOnDataNode" title="Scale Out Data Node: Effect on Data Node - Cost">
+				<img src="images/daasService/scaleOutDataNode_efectOnDataNode/cost.png"  width="200" height="100"></a>
+				<a href="images/daasService/scaleOutDataNode_efectOnDataNode/cpuUsage.png?lightbox[modal]=true" data-lightbox="scaleOutDataNode_efectOnDataNode" title="Scale Out Data Node: Effect on Data Node - CPU Usage">
+				<img src="images/daasService/scaleOutDataNode_efectOnDataNode/cpuUsage.png"  width="200" height="100"></a>
+				<a href="images/daasService/scaleOutDataNode_efectOnDataNode/latency.png?lightbox[modal]=true" data-lightbox="scaleOutDataNode_efectOnDataNode" title="Scale Out Data Node: Effect on Data Node - Latency">
+				<img src="images/daasService/scaleOutDataNode_efectOnDataNode/latency.png"  width="200" height="100"></a>		
+				</li>
+				
+				<li>Scale Out Event Processing: Effect on Event Processing Service Unit <br/>
+				<a href="images/daasService/scaleOutEventProcessing_efectOnEventProcessingUnit/cost.png?lightbox[modal]=true" data-lightbox="scaleOutEventProcessing_efectOnEventProcessingUnit" title="Scale Out Event Processing: Effect on Event Processing Service Unit - Cost">
+				<img src="images/daasService/scaleOutEventProcessing_efectOnEventProcessingUnit/cost.png"  width="200" height="100"></a>
+				<a href="images/daasService/scaleOutEventProcessing_efectOnEventProcessingUnit/responseTime.png?lightbox[modal]=true" data-lightbox="scaleOutEventProcessing_efectOnEventProcessingUnit" title="Scale Out Event Processing: Effect on Event Processing Service Unit - Response Time">
+				<img src="images/daasService/scaleOutEventProcessing_efectOnEventProcessingUnit/responseTime.png"  width="200" height="100"></a>	
+				<a href="images/daasService/scaleOutEventProcessing_efectOnEventProcessingUnit/throughput.png?lightbox[modal]=true" data-lightbox="scaleOutEventProcessing_efectOnEventProcessingUnit" title="Scale Out Event Processing: Effect on Event Processing Service Unit - Throughput">
+				<img src="images/daasService/scaleOutEventProcessing_efectOnEventProcessingUnit/throughput.png"  width="200" height="100"></a>					
+				</li>
+				
+				<li>Scale Out Event Processing: Effect on Event Processing Service Topology<br/>
+				<a href="images/daasService/scaleOutEventProcessing_efectOnEventProcServiceTopology/cost.png?lightbox[modal]=true" data-lightbox="scaleOutEventProcessing_efectOnEventProcServiceTopology" title="Scale Out Event Processing: Effect on Event Processing Service Topology - Cost">
+				<img src="images/daasService/scaleOutEventProcessing_efectOnEventProcServiceTopology/cost.png"  width="200" height="100"></a>
+				<a href="images/daasService/scaleOutEventProcessing_efectOnEventProcServiceTopology/responseTime.png?lightbox[modal]=true" data-lightbox="scaleOutEventProcessing_efectOnEventProcServiceTopology" title="Scale Out Event Processing: Effect on Event Processing Service Topology - Response Time">
+				<img src="images/daasService/scaleOutEventProcessing_efectOnEventProcServiceTopology/responseTime.png"  width="200" height="100"></a>	
+				<a href="images/daasService/scaleOutEventProcessing_efectOnEventProcServiceTopology/throughput.png?lightbox[modal]=true" data-lightbox="scaleOutEventProcessing_efectOnEventProcServiceTopology" title="Scale Out Event Processing: Effect on Event Processing Service Topology - Throughput">
+				<img src="images/daasService/scaleOutEventProcessing_efectOnEventProcServiceTopology/throughput.png"  width="200" height="100"></a>		
+				<a href="images/daasService/scaleOutEventProcessing_efectOnEventProcServiceTopology/activeConnections.png?lightbox[modal]=true" data-lightbox="scaleOutEventProcessing_efectOnEventProcServiceTopology" title="Scale Out Event Processing: Effect on Event Processing Service Topology - Active Connections">
+				<img src="images/daasService/scaleOutEventProcessing_efectOnEventProcServiceTopology/activeConnections.png"  width="200" height="100"></a>					
+				</li>
+				</ul>
+				</center>
+				
+				<h2>Video Service</h2>
+				<p>The second cloud service is a three-tier web application which provides video streaming services to online users. Specifically, the cloud service is comprised of: (i) an <a href="http://haproxy.1wt.eu/">HAProxy</a> Load Balancer which distributes client requests (i.e., download, upload video) across multiple application servers; (ii) An Application Server Tier, where each application server is an <a href="http://tomcat.apache.org/">Apache Tomcat</a> server containing the video streaming web service;(iii) A <a href="http://cassandra.apache.org/">Cassandra</a> from where the necessary video content is retrieved.</p>
+				<img src="images/video_service/video_service_v1.png"  width="200" height="200"> <br/> <br/>
+				<ul><li>Scale In Cassandra Node: Effect on Cloud Service<br/>
+				<a href="images/video_service/cloudServiceLevel_scaleIn_CassandraNode/nbVMs.png?lightbox[modal]=true" data-lightbox="cloudServiceLevel_scaleIn_CassandraNode" title="Scale In Cassandra Node: Effect on Cloud Service - Virtual Machine Number">
+				<img src="images/video_service/cloudServiceLevel_scaleIn_CassandraNode/nbVMs.png"  width="200" height="100"></a>
+				<a href="images/video_service/cloudServiceLevel_scaleIn_CassandraNode/cpuUsage.png?lightbox[modal]=true" data-lightbox="cloudServiceLevel_scaleIn_CassandraNode" title="Scale In Cassandra Node: Effect on Cloud Service - CPU Usage">
+				<img src="images/video_service/cloudServiceLevel_scaleIn_CassandraNode/cpuUsage.png"  width="200" height="100"></a></li>
+				<li>Scale Out Cassandra Node: Effect on Cloud Service <br/>
+				<a href="images/video_service/cloudServiceLevel_scaleOut_CassandraNode/cost.png?lightbox[modal]=true" data-lightbox="cloudServiceLevel_scaleOut_CassandraNode" title="Scale Out Cassandra Node: Effect on Cloud Service - Cost">
+				<img src="images/video_service/cloudServiceLevel_scaleOut_CassandraNode/cost.png"  width="200" height="100"></a>
+				<a href="images/video_service/cloudServiceLevel_scaleOut_CassandraNode/cpuUsage.png?lightbox[modal]=true" data-lightbox="cloudServiceLevel_scaleOut_CassandraNode" title="Scale Out Cassandra Node: Effect on Cloud Service - CPU Usage">
+				<img src="images/video_service/cloudServiceLevel_scaleOut_CassandraNode/cpuUsage.png"  width="200" height="100"></a>	
+				</li>
+				<li>Scale In Cassandra Node: Effect on Cassandra Cluster <br/>
+				<a href="images/video_service/servTopologyLev_CassandraCluster_ScaleIn_CassandraNode/cost.png?lightbox[modal]=true" data-lightbox="servTopologyLev_CassandraCluster_ScaleIn_CassandraNode" title="Scale In Cassandra Node: Effect on Cassandra Cluster - Cost">
+				<img src="images/video_service/servTopologyLev_CassandraCluster_ScaleIn_CassandraNode/cost.png"  width="200" height="100"></a>
+				<a href="images/video_service/servTopologyLev_CassandraCluster_ScaleIn_CassandraNode/cpuUsage.png?lightbox[modal]=true" data-lightbox="servTopologyLev_CassandraCluster_ScaleIn_CassandraNode" title="Scale In Cassandra Node: Effect on Cassandra Cluster - Cost">
+				<img src="images/video_service/servTopologyLev_CassandraCluster_ScaleIn_CassandraNode/cpuUsage.png"  width="200" height="100"></a>	
+				</li>
+				<li>Scale Out Cassandra Node: Effect on Cassandra Cluster <br/>
+				<a href="images/video_service/servTopologyLev_CassandraCluster_ScaleOut_CassandraNode/cost.png?lightbox[modal]=true" data-lightbox="servTopologyLev_CassandraCluster_ScaleOut_CassandraNode" title="Scale Out Cassandra Node: Effect on Cassandra Cluster - Cost">
+				<img src="images/video_service/servTopologyLev_CassandraCluster_ScaleOut_CassandraNode/cost.png"  width="200" height="100"></a>
+				<a href="images/video_service/servTopologyLev_CassandraCluster_ScaleOut_CassandraNode/cpuUsage.png?lightbox[modal]=true" data-lightbox="servTopologyLev_CassandraCluster_ScaleOut_CassandraNode" title="Scale Out Cassandra Node: Effect on Cassandra Cluster - CPU Usage">
+				<img src="images/video_service/servTopologyLev_CassandraCluster_ScaleOut_CassandraNode/cpuUsage.png"  width="200" height="100"></a>	
+				</li>
+				<li>Scale In Application Server: Effect on Application Server <br/>
+				<a href="images/video_service/servUnitLevel_AppServer_ScaleInAppServer/busyThreads.png?lightbox[modal]=true" data-lightbox="servUnitLevel_AppServer_ScaleInAppServer"  title="Scale In Application Server: Effect on Application Server - Busy Threads">
+				<img src="images/video_service/servUnitLevel_AppServer_ScaleInAppServer/busyThreads.png"  width="200" height="100"></a>
+				<a href="images/video_service/servUnitLevel_AppServer_ScaleInAppServer/requestThread.png?lightbox[modal]=true" data-lightbox="servUnitLevel_AppServer_ScaleInAppServer"  title="Scale In Application Server: Effect on Application Server - Request Thread">
+				<img src="images/video_service/servUnitLevel_AppServer_ScaleInAppServer/requestThread.png"  width="200" height="100"></a>
+				<a href="images/video_service/servUnitLevel_AppServer_ScaleInAppServer/cpuUsage.png?lightbox[modal]=true" data-lightbox="servUnitLevel_AppServer_ScaleInAppServer"  title="Scale In Application Server: Effect on Application Server - CPU Usage">
+				<img src="images/video_service/servUnitLevel_AppServer_ScaleInAppServer/cpuUsage.png"  width="200" height="100"></a>
+				<a href="images/video_service/servUnitLevel_AppServer_ScaleInAppServer/memUsage.png?lightbox[modal]=true" data-lightbox="servUnitLevel_AppServer_ScaleInAppServer" title="Scale In Application Server: Effect on Application Server - Memory Usage">
+				<img src="images/video_service/servUnitLevel_AppServer_ScaleInAppServer/memUsage.png"  width="200" height="100"></a>					
+				<a href="images/video_service/servUnitLevel_AppServer_ScaleInAppServer/cost.png?lightbox[modal]=true" data-lightbox="servUnitLevel_AppServer_ScaleInAppServer"  title="Scale In Application Server: Effect on Application Server - Cost">
+				<img src="images/video_service/servUnitLevel_AppServer_ScaleInAppServer/cost.png"  width="200" height="100"></a>						
+				</li>
+				<li>Scale Out Application Server: Effect on Application Server <br/>
+				<a href="images/video_service/servUnitLevel_AppServer_ScaleOut_AppServer/busyThreads.png?lightbox[modal]=true" data-lightbox="servUnitLevel_AppServer_ScaleOut_AppServer" title="Scale Out Application Server: Effect on Application Server - Cost">
+				<img src="images/video_service/servUnitLevel_AppServer_ScaleOut_AppServer/busyThreads.png"  width="200" height="100"></a>
+				<a href="images/video_service/servUnitLevel_AppServer_ScaleOut_AppServer/requestThroughput.png?lightbox[modal]=true" data-lightbox="servUnitLevel_AppServer_ScaleOut_AppServer" title="Scale Out Application Server: Effect on Application Server - Request Throughput">
+				<img src="images/video_service/servUnitLevel_AppServer_ScaleOut_AppServer/requestThroughput.png"  width="200" height="100"></a>
+				<a href="images/video_service/servUnitLevel_AppServer_ScaleOut_AppServer/cpuUsage.png?lightbox[modal]=true" data-lightbox="servUnitLevel_AppServer_ScaleOut_AppServer" title="Scale Out Application Server: Effect on Application Server - CPU Usage">
+				<img src="images/video_service/servUnitLevel_AppServer_ScaleOut_AppServer/cpuUsage.png"  width="200" height="100"></a>
+				<a href="images/video_service/servUnitLevel_AppServer_ScaleOut_AppServer/memoryUsage.png?lightbox[modal]=true" data-lightbox="servUnitLevel_AppServer_ScaleOut_AppServer" title="Scale Out Application Server: Effect on Application Server - Memory Usage">
+				<img src="images/video_service/servUnitLevel_AppServer_ScaleOut_AppServer/memoryUsage.png"  width="200" height="100"></a>					
+				<a href="images/video_service/servUnitLevel_AppServer_ScaleOut_AppServer/cost.png?lightbox[modal]=true" data-lightbox="servUnitLevel_AppServer_ScaleOut_AppServer" title="Scale Out Application Server: Effect on Application Server - Cost">
+				<img src="images/video_service/servUnitLevel_AppServer_ScaleOut_AppServer/cost.png"  width="200" height="100"></a>						
+				</li>
+				</ul>
+				
+			</p>
+			
+			
+			<a id="prototype"></a>
+			<h2>Prototype</h2>
+			
+			<p>Our prototype is available in the <a href="https://github.com/tuwiendsg/ADVISE">GitHub Repository</a></p>
+			<br/>
+			<p>ADVISE can be used on <a href="http://www.infosys.tuwien.ac.at/research/viecom/mela/">MELA-provided</a> data (in current example we have a running version of MELA on our local OpenStack cloud), or with recorded data (the user has to provide the files requested by the prototype - historical data, recent data which we want to test). 
+			<br/><br/>
+			ADVISE monitors the evolution of the application over time, the learning process taking as input the current metrics behavior for the part of the cloud application we are focusing on (e.g.,at business layer, it would be the sequence of throughput and response time values for the last x minutes), and the intended Elasticity Control Process (e.g., add one more web service, or reconfigure application server to enable more threads followed by the addition of one more web service of type x), and produces expected metrics, in time, for current service part (in this case the business layer).  
+			<br/><br/><br/>
+			Please check the <a href="https://github.com/tuwiendsg/ADVISE/wiki/ADVISE">wiki</a> for more details. </p>
+			<h2>Contact</h2>
+			<p>If you need any further information please contact <a href="http://www.infosys.tuwien.ac.at/staff/ecopil" >Georgiana Copil</a>.</p>
+			
     </div>
-
-  
+    <footer>
+	
+      <p>Project maintained by <a href="https://github.com/tuwiendsg">tuwiendsg</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+	  <center><img src="logo_three.png"></center>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
   </body>
 </html>
