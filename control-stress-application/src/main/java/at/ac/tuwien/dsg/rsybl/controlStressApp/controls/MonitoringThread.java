@@ -23,6 +23,8 @@ import java.util.Date;
 
 import at.ac.tuwien.dsg.csdg.Node;
 import at.ac.tuwien.dsg.rSybl.dataProcessingUnit.api.MonitoringAPI;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -67,7 +69,11 @@ public class MonitoringThread implements Runnable{
 					 */
 				  String toWrite = date.toString()+",";
 				  for (String metric :api.getAvailableMetrics(entity))
-					  toWrite+=api.getMetricValue(metric, entity)+",";
+					  try {
+                                toWrite+=api.getMetricValue(metric, entity)+",";
+                            } catch (Exception ex) {
+                                Logger.getLogger(MonitoringThread.class.getName()).log(Level.SEVERE, null, ex);
+                            }
 				  toWrite+=api.getOngoingActionID()+","+api.getOngoingActionNodeID();
 				  fstream.write(toWrite+'\n');
 				  

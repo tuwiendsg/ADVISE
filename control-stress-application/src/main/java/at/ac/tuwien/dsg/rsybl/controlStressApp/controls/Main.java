@@ -59,7 +59,7 @@ public class Main {
 						deploymentDescription);
 		System.out.println(dependencyGraph.graphToString());
 	
-		RandomControlGeneration controlGeneration = new RandomControlGeneration(
+		RandomControlGenerationSalsa controlGeneration = new RandomControlGenerationSalsa(
 				dependencyGraph);
 		
 	}

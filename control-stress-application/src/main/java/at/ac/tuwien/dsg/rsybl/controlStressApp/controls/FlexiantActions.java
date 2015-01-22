@@ -1,20 +1,12 @@
 package at.ac.tuwien.dsg.rsybl.controlStressApp.controls;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.net.NetworkInterface;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
-import java.util.UUID;
-
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.Duration;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
 import javax.xml.ws.BindingProvider;
@@ -24,9 +16,6 @@ import org.apache.log4j.Logger;
 
 import com.extl.jade.user.ExtilityException;
 import com.extl.jade.user.Job;
-import com.extl.jade.user.JobStatus;
-import com.extl.jade.user.Network;
-import com.extl.jade.user.NetworkType;
 import com.extl.jade.user.Nic;
 import com.extl.jade.user.ResourceMetadata;
 import com.extl.jade.user.Server;
@@ -79,7 +68,7 @@ public class FlexiantActions extends ActionOnIaaSProvider {
 			datatypeFactory = DatatypeFactory.newInstance();
 		} catch (DatatypeConfigurationException e) {
 			// TODO Auto-generated catch block
-			Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,e.getMessage()); 
+			Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,e.getMessage()); 
 		}
 		XMLGregorianCalendar now = datatypeFactory
 				.newXMLGregorianCalendar(gregorianCalendar);
@@ -90,7 +79,7 @@ public class FlexiantActions extends ActionOnIaaSProvider {
 			datatypeFactory = DatatypeFactory.newInstance();
 		} catch (DatatypeConfigurationException e) {
 			// TODO Auto-generated catch block
-			Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,e.getMessage()); 
+			Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,e.getMessage()); 
 		}
 		now = datatypeFactory.newXMLGregorianCalendar(gregorianCalendar);
 		int mins = date.getMinutes();
@@ -106,7 +95,7 @@ public class FlexiantActions extends ActionOnIaaSProvider {
 		}
 		
 		now.setTime(hours, mins, sec);
-		Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,"Removing server at " + now.toString());
+		Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,"Removing server at " + now.toString());
 
 		Job stopServer = null;
 		try {
@@ -120,7 +109,7 @@ public class FlexiantActions extends ActionOnIaaSProvider {
 			datatypeFactory = DatatypeFactory.newInstance();
 		} catch (DatatypeConfigurationException e) {
 			// TODO Auto-generated catch block
-			Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,e.getMessage()); 
+			Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,e.getMessage()); 
 		}
 		now = datatypeFactory.newXMLGregorianCalendar(gregorianCalendar);
 		 mins = date.getMinutes();
@@ -143,7 +132,7 @@ public class FlexiantActions extends ActionOnIaaSProvider {
 			service.waitForJob(deleteServer.getResourceUUID(), false);
 		} catch (ExtilityException e) {
 			// TODO Auto-generated catch block
-			Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,e.getMessage()); 
+			Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,e.getMessage()); 
 			return;
 		}
 
@@ -217,7 +206,7 @@ public class FlexiantActions extends ActionOnIaaSProvider {
 			datatypeFactory = DatatypeFactory.newInstance();
 		} catch (DatatypeConfigurationException e) {
 			// TODO Auto-generated catch block
-			Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,e.getMessage()); return "";
+			Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,e.getMessage()); return "";
 		}
 		XMLGregorianCalendar now = datatypeFactory
 				.newXMLGregorianCalendar(gregorianCalendar);
@@ -236,7 +225,7 @@ public class FlexiantActions extends ActionOnIaaSProvider {
 		
 		now.setTime(hours, mins, sec);
 
-		Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,"Creating server at " + now.toString());
+		Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,"Creating server at " + now.toString());
 		sshs.add("c2676e1f-2466-322e-a44e-69da67d4bc85");
 		skeletonServer.setResourceName(serverName);
 //		Job j = null;
@@ -266,7 +255,7 @@ public class FlexiantActions extends ActionOnIaaSProvider {
 			datatypeFactory = DatatypeFactory.newInstance();
 		} catch (DatatypeConfigurationException e) {
 			// TODO Auto-generated catch block
-			Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,e.getMessage()); return "";
+			Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,e.getMessage()); return "";
 		}
 		now = datatypeFactory.newXMLGregorianCalendar(gregorianCalendar);
 		 mins = date.getMinutes();
@@ -288,14 +277,14 @@ public class FlexiantActions extends ActionOnIaaSProvider {
 			createServerJob = service.createServer(skeletonServer, sshs, now);
 		} catch (ExtilityException e) {
 			// TODO Auto-generated catch block
-			Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,e.getMessage()); return "";
+			Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,e.getMessage()); return "";
 		}
 
 		try {
 			service.waitForJob(createServerJob.getResourceUUID(), false);
 		} catch (ExtilityException e) {
 			// TODO Auto-generated catch block
-			Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,e.getMessage()); return "";
+			Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,e.getMessage()); return "";
 		}
 		
 //		date = new Date();
@@ -338,14 +327,14 @@ public class FlexiantActions extends ActionOnIaaSProvider {
 					skeletonServer.getResourceMetadata(), now);
 		} catch (ExtilityException e) {
 			// TODO Auto-generated catch block
-			Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,e.getMessage()); return "";
+			Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,e.getMessage()); return "";
 		}
 
 		try {
 			service.waitForJob(startServer.getResourceUUID(), false);
 		} catch (ExtilityException e) {
 			// TODO Auto-generated catch block
-			Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,e.getMessage()); return "";
+			Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,e.getMessage()); return "";
 		}
 		
 		return createServerJob.getItemUUID();
@@ -389,7 +378,7 @@ public class FlexiantActions extends ActionOnIaaSProvider {
 			datatypeFactory = DatatypeFactory.newInstance();
 		} catch (DatatypeConfigurationException e) {
 			// TODO Auto-generated catch block
-			Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,e.getMessage()); 
+			Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,e.getMessage()); 
 		}
 		XMLGregorianCalendar now = datatypeFactory
 				.newXMLGregorianCalendar(gregorianCalendar);
@@ -482,7 +471,7 @@ public class FlexiantActions extends ActionOnIaaSProvider {
 			// Iterate through the results
 			for (Object o : result.getList()) {
 				Server s = ((Server) o);
-				Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,"Server " + s.getResourceUUID());
+				Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,"Server " + s.getResourceUUID());
 
 				servers.add(s);
 
@@ -490,7 +479,7 @@ public class FlexiantActions extends ActionOnIaaSProvider {
 
 		} catch (Exception e) {
 
-			Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,e.getMessage()); 
+			Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,e.getMessage()); 
 		}
 		return servers;
 	}
@@ -545,7 +534,7 @@ public class FlexiantActions extends ActionOnIaaSProvider {
 			// Iterate through the results
 			for (Object o : result.getList()) {
 				Nic s = ((Nic) o);
-				Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,"Nic " + s.getResourceUUID()
+				Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,"Nic " + s.getResourceUUID()
 						+ "Server "+s.getServerUUID()+" Ip addresses " +s.getIpAddresses().size());
         	 	nics.add(s);
 
@@ -553,7 +542,7 @@ public class FlexiantActions extends ActionOnIaaSProvider {
 
 		} catch (Exception e) {
 
-			Logger.getLogger(RandomControlGeneration.class.getName()).log(Level.INFO,e.getMessage()); 
+			Logger.getLogger(FlexiantActions.class.getName()).log(Level.INFO,e.getMessage()); 
 		}
 
 		return nics;

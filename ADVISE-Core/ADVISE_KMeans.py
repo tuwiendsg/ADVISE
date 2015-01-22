@@ -7,7 +7,7 @@ Created on Wed Dec 18 10:53:11 2013
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 import scipy.cluster.hierarchy as hcluster
-from pandas import *
+
 import collections
 import matplotlib.pyplot as plt
 import scipy.spatial.distance as ssd
@@ -625,7 +625,7 @@ def computeExpectedValuesForGivenSP(currentMetrics,historicalMetrics,metricNames
     signIntervals = findSignificantSetsOfMetrics(historicalMetrics,signIndexes,changeInterval)
     numberOfClusters=int(math.sqrt(len(signIntervals)))   
     clusters= computeClustersWithKMeans(historicalMetrics,signIntervals,numberOfClusters,cutoff,headers)
-    #plotClustersAndMetrics(metrics,clusters,signIntervals)
+    plotClustersAndMetrics(metrics,clusters,signIntervals)
     #newInterval=[] 
     #for metricValues in metrics:
         #newInterval.append(metricValues[signIntervals[0][0]:(signIntervals[0][0]+changeInterval)])

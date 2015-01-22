@@ -7,7 +7,7 @@ Created on Tue Mar 18 10:45:48 2014
 import sys, math, random
 import requests
 import xml.etree.cElementTree as et
-import testWithKMeans as kMeans
+import ADVISE_KMeans as kMeans
 from Tkinter import *
 from math import *
 import tkMessageBox
