@@ -74,11 +74,11 @@ public class RandomControlGenerationFlexiant implements Runnable{
 				Logger.getLogger(RandomControlGenerationFlexiant.class.getName()).log(Level.INFO,"~~~~~~~~Elasticity Capability "+elCap.getName()+" with script "+elCap.getPrimitiveOperations());
 				if (elCap.getName().equalsIgnoreCase("scalein")){
 					monitoringAPI.enforcingActionStarted("ScaleIn",currentNode);
-					scaleIn(currentNode,elCap.getPrimitiveOperations());
+					scaleIn(currentNode,"");
 					monitoringAPI.enforcingActionEnded("ScaleIn", currentNode);
 				}else{
 					monitoringAPI.enforcingActionStarted("ScaleOut",currentNode);
-					scaleOut(currentNode,elCap.getPrimitiveOperations());
+					scaleOut(currentNode,"");
 					monitoringAPI.enforcingActionEnded("ScaleOut",currentNode);
 				}
 				break;
