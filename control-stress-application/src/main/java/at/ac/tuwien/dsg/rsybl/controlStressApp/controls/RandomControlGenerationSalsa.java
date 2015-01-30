@@ -9,6 +9,7 @@ import at.ac.tuwien.dsg.csdg.Node;
 import at.ac.tuwien.dsg.csdg.Relationship;
 import at.ac.tuwien.dsg.csdg.SimpleRelationship;
 import at.ac.tuwien.dsg.csdg.elasticityInformation.ElasticityCapability;
+import at.ac.tuwien.dsg.mela.common.configuration.metricComposition.CompositionRulesConfiguration;
 import at.ac.tuwien.dsg.rSybl.dataProcessingUnit.api.MonitoringAPI;
 import at.ac.tuwien.dsg.rsybl.enforcementPlugins.salsa.EnforcementSALSAAPI;
 import com.jcraft.jsch.ChannelExec;
@@ -41,13 +42,15 @@ public class RandomControlGenerationSalsa implements Runnable {
     private MonitoringAPI monitoringAPI;
     private DependencyGraph dependencyGraph;
 
-    public RandomControlGenerationSalsa(DependencyGraph dependencyGraph) {
+    public RandomControlGenerationSalsa(DependencyGraph dependencyGraph, String compositionRules) {
         this.dependencyGraph = dependencyGraph;
         salsaActions = new EnforcementSALSAAPI(dependencyGraph.getCloudService());
         cloudService = dependencyGraph.getCloudService();
         generateStress = new Thread(this);
         monitoringAPI = new MonitoringAPI();
         monitoringAPI.setControlledService(cloudService);
+        monitoringAPI.setCompositionRules(compositionRules);
+        salsaActions.setMonitoringPlugin(monitoringAPI);
 
         for (Node node : dependencyGraph.getAllServiceUnits()) {
             for (ElasticityCapability capability : node.getElasticityCapabilities()) {
@@ -69,20 +72,20 @@ public class RandomControlGenerationSalsa implements Runnable {
     @Override
     public void run() {
         while (true) {
-            int randomAction = (int) (Math.random() * elasticityCapabilities.size());
+            int randomAction = (int) Math.random() * (elasticityCapabilities.size());
+            Random rn = new Random();
+            randomAction = rn.nextInt(elasticityCapabilities.size());
             String elString = elasticityCapabilities.get(randomAction);
             Node currentNode = dependencyGraph.getNodeWithID(elString.substring(0, elString.indexOf('_')));
             for (ElasticityCapability elCap : currentNode.getElasticityCapabilities()) {
                 if (elCap.getName().equalsIgnoreCase(elString.substring(elString.indexOf('_') + 1))) {
                     Logger.getLogger(RandomControlGenerationFlexiant.class.getName()).log(Level.INFO, "~~~~~~~~Elasticity Capability " + elCap.getName() + " with script " + elCap.getPrimitiveOperations());
+                    System.out.println( "~~~~~~~~Elasticity Capability " + elCap.getName() + " from node "+currentNode.getId());
+                   
                     if (elCap.getName().equalsIgnoreCase("scalein")) {
-                        monitoringAPI.enforcingActionStarted(elString, currentNode);
                         scaleIn(currentNode);
-                        monitoringAPI.enforcingActionEnded(elString, currentNode);
                     } else {
-                        monitoringAPI.enforcingActionStarted(elString, currentNode);
-                        salsaActions.scaleOut(currentNode);
-                        monitoringAPI.enforcingActionEnded(elString, currentNode);
+                        scaleOut(currentNode);
                     }
                     break;
                 }
@@ -91,13 +94,20 @@ public class RandomControlGenerationSalsa implements Runnable {
             try {
                 int sleepPeriod = sleepGenerator.nextInt(Configuration.getMaxIntervalGeneration() - Configuration.getMinIntervalGeneration()) + Configuration.getMinIntervalGeneration();
                 Logger.getLogger(RandomControlGenerationFlexiant.class.getName()).log(Level.INFO, "Sleeping for " + sleepPeriod + " ... ");
+                System.out.println("Sleeping for " + sleepPeriod + " ... ");
                 Thread.sleep(sleepPeriod);
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 Logger.getLogger(RandomControlGenerationFlexiant.class.getName()).log(Level.INFO, e.getMessage());
-                Logger.getLogger(RandomControlGenerationFlexiant.class.getName()).log(Level.INFO, e.getMessage());
+                e.printStackTrace();
             }
         }
+    }
+
+    public void scaleOut(Node node) {
+        monitoringAPI.enforcingActionStarted("ScaleOut", node);
+        salsaActions.scaleOut(node);
+        monitoringAPI.enforcingActionEnded("ScaleOut", node);
     }
 
     private byte[] readFile(String file) throws IOException {
@@ -203,18 +213,20 @@ public class RandomControlGenerationSalsa implements Runnable {
 
     public void scaleIn(Node toBeScaled) {
         if (toBeScaled.getAllRelatedNodesOfType(Relationship.RelationshipType.HOSTED_ON_RELATIONSHIP, Node.NodeType.VIRTUAL_MACHINE).size() > 1) {
+            monitoringAPI.enforcingActionStarted("ScaleIn", toBeScaled);
 
             salsaActions.scaleIn(toBeScaled);
-            try {
-                Thread.sleep(70000);
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                Logger.getLogger(RandomControlGenerationFlexiant.class.getName()).log(Level.INFO, e.getMessage());
-            }
-
+//            try {
+//                Thread.sleep(70000);
+//            } catch (InterruptedException e) {
+//                // TODO Auto-generated catch block
+//                Logger.getLogger(RandomControlGenerationFlexiant.class.getName()).log(Level.INFO, e.getMessage());
+//            }
+//
+//monitoringAPI.refreshServiceStructure(cloudService);
+            monitoringAPI.enforcingActionEnded("ScaleIn", toBeScaled);
 
         }
-        monitoringAPI.refreshServiceStructure(cloudService);
 
 
     }
