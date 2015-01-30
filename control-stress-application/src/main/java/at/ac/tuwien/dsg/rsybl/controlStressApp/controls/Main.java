@@ -77,10 +77,9 @@ public class Main {
             DependencyGraph dependencyGraph = inputProcessing.loadDependencyGraphFromObjects(applicationDescription, new SYBLElasticityRequirementsDescription(),
                                             deploymentDescription);
             System.out.println(dependencyGraph.graphToString());
-            RandomControlGenerationSalsa controlGeneration = new RandomControlGenerationSalsa(
+            RandomControlGenerationFlexiant controlGeneration = new RandomControlGenerationFlexiant(
                             dependencyGraph,compositionRules);
-            controlGeneration.scaleOut(dependencyGraph.getNodeWithID("DataNodeUnit"));
-            controlGeneration.scaleIn(dependencyGraph.getNodeWithID("DataNodeUnit"));
+
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         } finally {

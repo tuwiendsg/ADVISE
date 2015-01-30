@@ -40,13 +40,13 @@ public class RandomControlGenerationFlexiant implements Runnable{
 	Random sleepGenerator = new Random();
 	private MonitoringAPI monitoringAPI;
 	private DependencyGraph dependencyGraph;
-	public RandomControlGenerationFlexiant(DependencyGraph dependencyGraph){
+	public RandomControlGenerationFlexiant(DependencyGraph dependencyGraph, String compositionRules){
 		this.dependencyGraph=dependencyGraph;
 		cloudService=dependencyGraph.getCloudService();
 		generateStress=new Thread(this);
 		monitoringAPI = new MonitoringAPI();
 		monitoringAPI.setControlledService(cloudService);
-	
+                monitoringAPI.setCompositionRules(compositionRules);
 		for (Node node:dependencyGraph.getAllServiceUnits()){
 			for (ElasticityCapability capability:node.getElasticityCapabilities())
 			elasticityCapabilities.add(node.getId()+"_"+ capability.getName());
@@ -73,13 +73,13 @@ public class RandomControlGenerationFlexiant implements Runnable{
 			if (elCap.getName().equalsIgnoreCase(elString.substring(elString.indexOf('_')+1))){
 				Logger.getLogger(RandomControlGenerationFlexiant.class.getName()).log(Level.INFO,"~~~~~~~~Elasticity Capability "+elCap.getName()+" with script "+elCap.getPrimitiveOperations());
 				if (elCap.getName().equalsIgnoreCase("scalein")){
-					monitoringAPI.enforcingActionStarted(elString,currentNode);
+					monitoringAPI.enforcingActionStarted("ScaleIn",currentNode);
 					scaleIn(currentNode,elCap.getPrimitiveOperations());
-					monitoringAPI.enforcingActionEnded(elString, currentNode);
+					monitoringAPI.enforcingActionEnded("ScaleIn", currentNode);
 				}else{
-					monitoringAPI.enforcingActionStarted(elString,currentNode);
+					monitoringAPI.enforcingActionStarted("ScaleOut",currentNode);
 					scaleOut(currentNode,elCap.getPrimitiveOperations());
-					monitoringAPI.enforcingActionEnded(elString,currentNode);
+					monitoringAPI.enforcingActionEnded("ScaleOut",currentNode);
 				}
 				break;
 			}
